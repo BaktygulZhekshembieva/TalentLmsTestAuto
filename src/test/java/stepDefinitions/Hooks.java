@@ -1,4 +1,4 @@
-package steps;
+package stepDefinitions;
 
 import com.talentlms.UI.driverFactory.Driver;
 import io.cucumber.java.After;

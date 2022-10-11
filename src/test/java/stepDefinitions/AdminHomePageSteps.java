@@ -1,4 +1,4 @@
-package steps;
+package stepDefinitions;
 
 public class AdminHomePageSteps {
 

@@ -1,21 +1,16 @@
-package steps;
+package stepDefinitions;
 
 import com.talentlms.UI.dataProvider.ConfigReader;
 import com.talentlms.UI.helperMathods.Helper;
 import com.talentlms.UI.pages.AdminHomePage;
 import com.talentlms.UI.pages.LoginPage;
-import com.talentlms.UI.pages.WelcomePage;
 import com.talentlms.UI.driverFactory.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 
-public class LoginSteps {
-
-    LoginPage loginPage = new LoginPage();
-    Helper helper = new Helper();
-    AdminHomePage adminHomePage = new AdminHomePage();
+public class LoginSteps extends BaseTest{
 
     @Given("Go to login page")
     public void go_to_login_page() {

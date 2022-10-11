@@ -1,11 +1,4 @@
-package steps;
-
-import com.talentlms.UI.helperMathods.Helper;
-import com.talentlms.UI.pages.AdminHomePage;
-import com.talentlms.UI.pages.WelcomePage;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
+package stepDefinitions;
 
 public class WelcomeSteps {
 
