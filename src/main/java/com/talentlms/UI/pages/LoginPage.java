@@ -1,5 +1,6 @@
 package com.talentlms.UI.pages;
 
+import com.talentlms.UI.dataProvider.ConfigReader;
 import com.talentlms.UI.helperMathods.Helper;
 import com.talentlms.UI.driverFactory.Driver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,16 @@ public class LoginPage extends BasePage{
 
     @FindBy(xpath = "//img[@class=\"avatar-square\"]")
     public WebElement avatar;
+    @FindBy(xpath = "(//a[@href=\"https://baktygul.talentlms.com/user/create\"])[2]")
+    private WebElement addNewUserButton;
+
+    public LoginPage login(String url){
+        driver.get(url);
+        inputUserNameOrEmail(ConfigReader.getProperty("username"))
+                .inputPassword(ConfigReader.getProperty("password"));
+        clickLoginBotton();
+        return this;
+    }
 
     public LoginPage inputUserNameOrEmail(String userNameOrEmail){
         helper.sendKeys(userNameOrEmailInput,userNameOrEmail);
@@ -37,6 +48,11 @@ public class LoginPage extends BasePage{
 
     public LoginPage clickAvatar(){
         helper.click(avatar);
+        return this;
+    }
+
+    public LoginPage goToAddNewUserPage(){
+        helper.click(addNewUserButton);
         return this;
     }
 }

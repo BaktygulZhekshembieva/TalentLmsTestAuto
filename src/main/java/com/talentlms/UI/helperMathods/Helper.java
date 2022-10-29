@@ -37,6 +37,13 @@ public class Helper {
         return this;
     }
 
+    public Helper sendKeysWithClear(WebElement element, String str){
+        waitElementToBeDisplayed(element);
+        element.clear();;
+        element.sendKeys(str);
+        return this;
+    }
+
     public String getText(WebElement element){
         return element.getText();
     }
