@@ -1,12 +1,15 @@
-package com.talentlms.UI.helperMathods;
+package com.talentlms.UI.helperMethods;
 
 
 import com.talentlms.UI.driverFactory.Driver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class Helper {
 
@@ -46,5 +49,34 @@ public class Helper {
 
     public String getText(WebElement element){
         return element.getText();
+    }
+
+
+    public Helper pause(Integer milliseconds){ //столько милисекунд он б./т ждать что-то.
+        try {
+            TimeUnit.MILLISECONDS.sleep(milliseconds);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+    public Helper javascriptScrollDownThePage(){ // б/т скролит с помощью  javascript
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,800)");
+        return this;
+    }
+
+    public Helper jsClick(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();", element);
+        return this;
+    }
+
+    public Helper clear(WebElement element){
+        waitElementToBeDisplayed(element);
+        element.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+        element.sendKeys(Keys.BACK_SPACE);
+        return this;
     }
 }

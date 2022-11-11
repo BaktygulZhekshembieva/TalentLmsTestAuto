@@ -1,5 +1,6 @@
 package com.talentlms.UI.driverFactory;
 
+import com.talentlms.UI.dataProvider.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +17,9 @@ public class ChromeWebDriver {
         options.addArguments("--disable-extensions"); // удаляет все расширения в браузере
         options.addArguments("--window-size=1920,1080"); // формат экрана
 
+        if (Boolean.parseBoolean(ConfigReader.getProperty("headless"))){
+            options.addArguments("--headless");
+        }
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

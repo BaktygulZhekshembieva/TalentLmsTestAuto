@@ -1,14 +1,12 @@
 package stepDefinitions;
 
 import com.talentlms.UI.dataProvider.ConfigReader;
-import com.talentlms.UI.helperMathods.Helper;
-import com.talentlms.UI.pages.AdminHomePage;
-import com.talentlms.UI.pages.LoginPage;
 import com.talentlms.UI.driverFactory.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
 
 public class LoginSteps extends BaseTest{
 
@@ -34,7 +32,10 @@ public class LoginSteps extends BaseTest{
 
     @Then("user should logged in")
     public void user_should_logged_in() {
-        Assertions.assertEquals("Home", helper.getText(adminHomePage.adminHomeTitle));
+//        Assertions.assertEquals("Home", helper.getText(adminHomePage.adminHomeTitle));
+            Assertions.assertEquals("Home", adminHomePage.adminHomeTitle.getText());
+            fluentWait1.fluentWaitUnitclickable(By.xpath("//div[@class='tl-bold-link'])[1]"));
     }
+
 
 }

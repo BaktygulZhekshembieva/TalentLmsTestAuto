@@ -1,7 +1,7 @@
 package com.talentlms.UI.pages;
 
 import com.talentlms.UI.driverFactory.Driver;
-import com.talentlms.UI.helperMathods.Helper;
+import com.talentlms.UI.helperMethods.Helper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
